@@ -46,7 +46,7 @@ int main()
     nineintervals++;
     if(nineintervals==9){
       nineintervals=0;
-      means.push_back(meannine/9.);
+      means.push_back(meannine/(9));
       meannine=0;
     }
 
@@ -95,7 +95,7 @@ int main()
     varsine+=(a-mean)*(a-mean);
     if(nineintervals==9){
       nineintervals=0;
-      variances.push_back(varsine/9.);
+      variances.push_back(varsine/(9.-1));
       varsine=0;
     }
     
@@ -108,7 +108,7 @@ int main()
   }
   meaninevariance/=26;
   cout<<"meaninevariance "<< meaninevariance<<endl;
-  variance/=NTot;
+  variance/=(NTot-1);
   cout<<"ctrsumme "<<ctrsumme<<endl;
   cout<<"variance "<< variance<<endl;
   // Clean up
