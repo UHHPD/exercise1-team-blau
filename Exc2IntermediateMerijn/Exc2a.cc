@@ -2,6 +2,7 @@
 // the sums in "datensumme.txt"
 #include <fstream>
 #include <iostream>
+#include <cmath>
 
 
 using namespace std;
@@ -16,9 +17,10 @@ int main()
   // Declare the variables for the left 
   // and right numbers on the stack
   int a, b;
-
+  
   int NTot=0;
   double sum=0; //take double, better when do divide.
+
   
   while (!fin.eof())
   { // Loop over all the values in fin
@@ -26,23 +28,56 @@ int main()
     fin >> a;
     fin >> b;
 
+    if (fin.fail()){
+      cout<<"BINGO"<<endl;
+      break;
+    }
+
     sum+=a;
-    sum+=b;//add up everything    
+    sum+=b;
     NTot++;//this should add to 234 ai for normalisation.
 
-    cout<<"a "<< a<<"B "<<b<<endl;
-
     // Write the resulting sum into fout
-    // fout << a + b << std::endl;
+    fout << a + b << std::endl;
   }
 
-  double mean=sum/NTot;
-  
-  cout<<"sum "<<sum<<" ntot "<<NTot<<" mean "<<mean<<std::endl;
   // Clean up
   fin.close();
   fout.close();
 
+  double mean=sum/NTot;
+  cout<<"sum "<<sum<<" ntot "<<NTot<<" mean "<<mean<<std::endl;
+
+
+  std::ifstream fins("datensumme.txt");
+  double variance=0;
+
+  int ctrsumme;
+  while (!fins.eof())
+  { // Loop over all the values in fins
+    // Collect the in pairs
+    fins >> a;
+    if (fins.fail()){
+      cout<<"BINGO"<<endl;
+      break;
+    }
+    ctrsumme++;
+    variance+=(a-mean)*(a-mean);
+
+    // Write the resulting sum into fout
+  }
+
+  variance/=NTot;
+  cout<<"ctrsumme "<<ctrsumme<<endl;
+  cout<<"variance "<< variance<<endl;
+  // Clean up
+  fins.close();
+
+  cout<<"std dev "<< sqrt(variance)<<endl;
+
+
+
+  
   // Ciao
   return 0;
 }
