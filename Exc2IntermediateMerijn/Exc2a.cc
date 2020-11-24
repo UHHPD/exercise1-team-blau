@@ -28,15 +28,10 @@ int main()
     // Collect the in pairs
     fin >> a;
     fin >> b;
-
-<<<<<<< HEAD:Exc2.cc
+    
     if (fin.fail())
     {
-=======
-    if (fin.fail()){
-      cout<<"BINGO"<<endl;
->>>>>>> 05b324bf4d5cd5db57a5582c721eee2defd8e17b:Exc2IntermediateMerijn/Exc2a.cc
-      break;
+      continue;
     }
 
     sum+=a;
@@ -46,24 +41,20 @@ int main()
 <<<<<<< HEAD:Exc2.cc
     //cout << "a: "<< a << ", b: " << b << endl;
 
-=======
->>>>>>> 05b324bf4d5cd5db57a5582c721eee2defd8e17b:Exc2IntermediateMerijn/Exc2a.cc
+
     // Write the resulting sum into fout
     fout << a + b << std::endl;
   }
 
-<<<<<<< HEAD:Exc2.cc
+
   double mean=sum/NTot;
   
   cout << "Sum: " << sum << "; ntot: "<<NTot<<" mean "<<mean<<std::endl;
 
-=======
->>>>>>> 05b324bf4d5cd5db57a5582c721eee2defd8e17b:Exc2IntermediateMerijn/Exc2a.cc
   // Clean up
   fin.close();
   fout.close();
 
-<<<<<<< HEAD:Exc2.cc
   // Open daten
   std::ifstream datensumme("datensumme.txt");
   double var = 0.f;
@@ -92,9 +83,6 @@ int main()
 
   size_t counter = 0;
   
-
-
-=======
   double mean=sum/NTot;
   cout<<"sum "<<sum<<" ntot "<<NTot<<" mean "<<mean<<std::endl;
 
@@ -126,9 +114,6 @@ int main()
   cout<<"std dev "<< sqrt(variance)<<endl;
 
 
-
-  
->>>>>>> 05b324bf4d5cd5db57a5582c721eee2defd8e17b:Exc2IntermediateMerijn/Exc2a.cc
   // Ciao
   return 0;
 }
